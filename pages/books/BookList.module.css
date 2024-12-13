@@ -1,0 +1,34 @@
+/* pages/books/BookList.module.css */
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .heading {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .bookList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  
+  .filterContainer {
+    margin-bottom: 20px;
+    text-align: center; /* Center the filter */
+  }
+  
+  .filterContainer label {
+    margin-right: 10px;
+  }
+  
+  .filterContainer select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  

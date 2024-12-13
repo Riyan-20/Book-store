@@ -1,0 +1,31 @@
+/* pages/Genres.module.css */
+.container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .heading {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .genreList {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .genreItem {
+    margin: 10px 0;
+  }
+  
+  .genreLink {
+    color: #0070f3;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  
+  .genreLink:hover {
+    text-decoration: underline;
+  }
+  

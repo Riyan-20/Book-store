@@ -1,0 +1,15 @@
+/* pages/info/Info.module.css */
+.container {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .text {
+    font-size: 1rem;
+  }
+  
