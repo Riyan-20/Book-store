@@ -1,8 +1,10 @@
 // pages/books/[id].js
 import data from '../../public/data/books.json';
-import Link from 'next/link'; 
+import Link from 'next/link';
 import Review from '../../components/Review';
 import styles from './BookDetails.module.css';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 export async function getStaticPaths() {
   const paths = data.books.map((book) => ({
@@ -38,6 +40,23 @@ export async function getStaticProps({ params }) {
 }
 
 export default function BookDetails({ book, author, reviews }) {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    // Check if user is logged in (e.g., check for a cookie)
+    const token = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/, "$1");
+
+    if (!token) {
+      // Redirect to login page if not logged in
+      router.push('/login');
+    } else {
+      setIsLoggedIn(true);
+    }
+  }, [router]);
+
+  if (!isLoggedIn) return null; // Show nothing until login status is checked
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>{book.title}</h1>

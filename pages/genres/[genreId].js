@@ -8,12 +8,13 @@ export async function getServerSideProps({ params }) {
   const { genreId } = params;
   const genreRes = await fetch(`http://localhost:3000/api/genres/${genreId}`);
   const genre = await genreRes.json();
-  const booksRes = await fetch(`http://localhost:3000/api/books?genreId=${genreId}`);
-  const books = await booksRes.json();
 
-  if (!genre || books.length === 0) {
+  if (genreRes.status !== 200 || !genre) {
     return { notFound: true };
   }
+
+  const booksRes = await fetch(`http://localhost:3000/api/books?genreId=${genreId}`);
+  const books = await booksRes.json();
 
   return {
     props: { genre, books },
